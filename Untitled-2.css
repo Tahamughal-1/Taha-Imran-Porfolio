@@ -1,0 +1,551 @@
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ye background ke peechay rahay ga */
+    background: #000; /* Black background */
+}
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+    padding: 20px 50px;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 35px;
+    
+    /* Gradient Magic Starts Here */
+    background: linear-gradient(to right, #f00303, #ffffff); /* White to Red */
+    -webkit-background-clip: text; /* Text ke andar gradient ko lock karta hai */
+    -webkit-text-fill-color: transparent; /* Original text color ko gayab kar deta hai */
+    
+    /* Extra spacing agar logo image sath hai */
+    gap: 10px; 
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff5e48;
+}
+
+.btn-contact {
+    background-color: #ff5e48;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block; /* Animation ke liye zaroori hai */
+    
+    /* Smooth transition */
+    transition: all 0.3s ease-in-out; 
+    border-radius: 5px; /* Thora sa curve look ke liye */
+}
+
+/* Hover Effect (Jab mouse cursor button par aaye) */
+.btn-contact:hover {
+    transform: scale(1.1); /* Button ko 10% bara karega */
+    background-color: #e04d39; /* Hover par thora dark red shade */
+    box-shadow: 0 10px 20px rgba(255, 94, 72, 0.3); /* Glow effect */
+    cursor: pointer;
+}
+
+/* Active Effect (Jab button click ho) */
+.btn-contact:active {
+    transform: scale(0.95); /* Click karne par thora dab jayega */
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 30%, transparent 100%), 
+                url('img1.jpg'); /* Aapki image ka naam yahan img1 rakha hai */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.sub-heading {
+    display: flex;
+    align-items: center;
+    color: #ff5e48;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.line {
+    width: 30px;
+    height: 2px;
+    background-color: #ff5e48;
+    margin-right: 10px;
+}
+
+h1 {
+    /* Font Selection: Montserrat ya Poppins best hain bold looks ke liye */
+    font-family:  sans-serif; 
+    
+    font-size: 45.5px; /* Size thora barha diya hai impact ke liye */
+    line-height: 1.05; /* Lines ko kareeb laya gaya hai modern look ke liye */
+    font-weight: 900;
+    
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    
+    /* Alignment & Spacing */
+    letter-spacing: -2px; /* Letters ko thora sa tight kiya hai (Premium Look) */
+    text-align: left; /* Alignment hamesha left rakhen agar hero content left par hai */
+    max-width: 800px; /* Text ko boht zyada phailne se rokta hai */
+    
+    /* Optional: Subtle Gradient ya Color */
+    color: #ffffff;
+}
+
+/* Choti screens (Mobile) ke liye adjustment */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+    }
+}
+
+.btn-portfolio {
+    background-color: transparent; /* Background shuru mein khali rakhen */
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 35px;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block;
+    border: 2px solid #ff5e48; /* Red Border hamesha rahay ga */
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden; /* Fill animation ko andar rakhne ke liye */
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+/* Background Fill Effect (Jo hover par move karega) */
+.btn-portfolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Shuru mein button se bahar left side par */
+    width: 100%;
+    height: 100%;
+    background-color: #ff5e48; /* Theme Red */
+    transition: all 0.4s ease;
+    z-index: -1; /* Text ke peeche rahega */
+}
+
+/* Hover State */
+.btn-portfolio:hover {
+    color: #fff; /* Text white hi rahay ga */
+    transform: translateY(-5px); /* Button thora upar uthay ga */
+    box-shadow: 0 10px 20px rgba(250, 36, 8, 0.4); /* Red Glow effect */
+}
+
+.btn-portfolio:hover::before {
+    left: 0; /* Hover karne par red color left se andar slide ho kar ayega */
+}
+
+/* Click Effect */
+.btn-portfolio:active {
+    transform: translateY(-2px);
+}
+----------------------------------
+.btn-portfolio:hover {
+    background-color: #e04d39;
+}
+
+/* Responsive (Chotay screens ke liye) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+    }
+    .nav-links {
+        display: none; /* Mobile menu hidden by default */
+    }
+}
+
+/* Container for alignment */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* About Section Styles */
+.about-section {
+    background-color: #0a0a0a;
+}
+
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    filter: grayscale(100%); /* B&W look match karne ke liye */
+    transition: 0.5s;
+}
+
+.about-image img:hover {
+    filter: grayscale(0%);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+
+/* Services Section Styling */
+.services-section {
+    background-color: #000; /* Main Background Black */
+    padding: 100px 50px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Vertical text on the left */
+.side-text {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 80px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns layout */
+    gap: 30px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.service-card {
+    padding: 40px 30px;
+    border-radius: 15px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+/* Staggered Effect (Cards ko uper neeche karne ke liye) */
+.service-card:nth-child(even) {
+    margin-top: 50px;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+/* White Card Style (Was Black) */
+.white-card {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.white-card .icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #fc1d00; /* Icon color match with theme */
+}
+
+.white-card h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+/* Red Card Style (Was Purple) */
+.red-card {
+    background-color: #ff5e48; /* Theme Red/Orange */
+    color: #fff;
+}
+
+.red-card .icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.red-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.service-card p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 992px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+    .service-card:nth-child(even) {
+        margin-top: 0;
+    }
+    .side-text {
+        display: none;
+    }
+}
+/* Experience Section Styling */
+.experience-section {
+    background-color: #000; /* Background Black */
+    padding: 100px 50px;
+    color: #fff;
+}
+
+.container-flex {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.exp-text {
+    flex: 1;
+}
+
+.badge {
+    background: #fff;
+    color: #ff5e48;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.exp-text h2 {
+    font-size: 45px;
+    line-height: 1.2;
+    margin: 25px 0;
+    font-weight: 800;
+}
+
+.underline {
+    border-bottom: 3px solid #ff5e48; /* Red Underline */
+}
+
+.exp-text p {
+    color: #aaa;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+/* Stats Styling */
+.stats-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.stats-grid {
+    background-color: #fff; /* White Container */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px;
+}
+
+.stat-box {
+    padding: 40px;
+    text-align: center;
+    border: 0.5px solid #eee; /* Light lines between boxes */
+}
+
+.stat-box h3 {
+    font-size: 40px;
+    color: #ff5e48; /* Numbers turned Red */
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.stat-box p {
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .container-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .bg-hello {
+        font-size: 120px;
+    }
+}
+
+/* Solutions Section Styling */
+.solutions-section {
+    background-color: #000;
+    padding: 100px 50px;
+    color: #fff;
+    border-top: 1px solid #222; /* Halki si separation */
+}
+
+.main-title {
+    font-size: 80px;
+    font-family: 'Serif', 'Playfair Display', serif; /* Use a serif font for that elegant look */
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 60px;
+}
+
+.solutions-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.solutions-description {
+    flex: 1;
+}
+
+.solutions-description p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.solutions-list {
+    flex: 1.5;
+    display: flex;
+    justify-content: space-between;
+}
+
+.solutions-list ul {
+    list-style: none;
+}
+
+.solutions-list li {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #fff;
+    position: relative;
+    padding-left: 20px;
+    font-weight: 500;
+}
+
+/* List dot (Bullet point) */
+.solutions-list li::before {
+    content: "•";
+    color: #ff5e48; /* Red dot to match theme */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 992px) {
+    .main-title {
+        font-size: 50px;
+    }
+    .solutions-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .solutions-list {
+        flex-direction: column;
+        gap: 0;
+    }
+}
